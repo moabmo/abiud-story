@@ -30,6 +30,13 @@ const chapters = [
     text: "The chapter of giving too much, caring too deeply, overexplaining, chasing validation, and learning difficult lessons about attachment, boundaries, and self-worth.",
   },
 
+
+  {
+    title: "Simping Chats",
+    icon: Heart,
+    text: "A private archive of desperate messages, emotional overexplaining, late-night paragraphs, unsent drafts, and painful conversations. It reflects moments of vulnerability, attachment, heartbreak, and the emotional impact caused by experiences involving two women whose identities will remain concealed.",
+  },
+
   {
     title: "What Hurt the Most",
     icon: Sparkles,
