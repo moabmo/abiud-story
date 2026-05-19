@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, BriefcaseBusiness, Heart, Home, Sparkles, UserRound } from "lucide-react";
 
@@ -23,6 +23,13 @@ const chapters = [
     icon: Heart,
     text: "The decisions, missed chances, hard lessons, and reflections that became part of the growth story.",
   },
+
+  {
+    title: "Simping Era",
+    icon: Heart,
+    text: "The chapter of giving too much, caring too deeply, overexplaining, chasing validation, and learning difficult lessons about attachment, boundaries, and self-worth.",
+  },
+
   {
     title: "What Hurt the Most",
     icon: Sparkles,
@@ -36,8 +43,83 @@ const chapters = [
 ];
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("abiud-auth") === "true"
+  );
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  function handleLogin(e) {
+    e.preventDefault();
+
+    if (password === "abiud2026") {
+      localStorage.setItem("abiud-auth", "true");
+      setIsAuthenticated(true);
+      setError("");
+      return;
+    }
+
+    setError("Wrong password. Try again.");
+  }
+
+  function handleLogout() {
+    localStorage.removeItem("abiud-auth");
+    setIsAuthenticated(false);
+    setPassword("");
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#f7f9fc] px-6">
+        <form
+          onSubmit={handleLogin}
+          className="w-full max-w-md rounded-[2rem] bg-white p-8 shadow-xl"
+        >
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#064b96]">
+            Private Story
+          </p>
+
+          <h1 className="mt-3 text-3xl font-bold text-slate-900">
+            Abiud Monyoro Mong&apos;are
+          </h1>
+
+          <p className="mt-3 text-slate-600">
+            Enter password to continue.
+          </p>
+
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="mt-6 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:border-[#064b96]"
+          />
+
+          {error && (
+            <p className="mt-3 text-sm font-medium text-red-600">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="mt-6 w-full rounded-2xl bg-[#064b96] px-5 py-3 font-semibold text-white transition hover:bg-[#002b5c]"
+          >
+            Unlock Story
+          </button>
+        </form>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-[#f7f9fc] text-slate-900">
+      <button
+        onClick={handleLogout}
+        className="fixed right-5 top-5 z-50 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#064b96] shadow-md backdrop-blur hover:bg-white"
+      >
+        Logout
+      </button>
       <section className="relative overflow-hidden bg-gradient-to-br from-[#002b5c] via-[#064b96] to-[#0b6bc2] text-white">
         <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#ffd200]/30 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#00843d]/25 blur-3xl" />
