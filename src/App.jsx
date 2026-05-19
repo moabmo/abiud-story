@@ -34,7 +34,7 @@ const chapters = [
   {
     title: "Simping Chats",
     icon: Heart,
-    text: "A private archive of desperate messages, emotional overexplaining, late-night paragraphs, unsent drafts, and painful conversations. It reflects moments of vulnerability, attachment, heartbreak, and the emotional impact caused by experiences involving two women whose identities will remain concealed.",
+    text: "A private archive of desperate messages, emotional overexplaining, late-night paragraphs, unsent drafts, and painful conversations. It reflects moments of vulnerability, attachment, heartbreak, and emotional exhaustion caused by experiences involving two women whose identities will remain concealed. <span style={{color: '#dc2626', fontWeight: 'bold'}}>Why he feels like he cannot take it anymore.</span>",
   },
 
   {
@@ -199,7 +199,7 @@ export default function App() {
           <p className="mt-5 text-lg leading-8 text-slate-600">
             This is a living story. The details will change as the truth becomes clearer:
             where Abiud came from, what shaped him, what hurt him, what he regrets,
-            and the work he still wants to do with his life.
+            and why he cant take it anymore.
           </p>
         </div>
       </section>
